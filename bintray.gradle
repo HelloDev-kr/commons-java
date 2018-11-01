@@ -1,0 +1,63 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = rootProject.ext.bintray.libraryVersion
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+/*
+task javadoc(type: Javadoc) {
+	source = android.sourceSets.main.java.srcDirs
+	classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+	classifier = 'javadoc'
+	from javadoc.destinationDir
+}
+*/
+
+artifacts {
+//    archives javadocJar
+    archives sourcesJar
+}
+
+//task findConventions << {
+//    println project.getConvention()
+//}
+
+task findConventions {
+    doLast {
+        println project.getConvention()
+    }
+}
+
+// Bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty('bintray.user')
+    key = properties.getProperty('bintray.apikey')
+
+    configurations = ['archives']
+    pkg {
+        repo = rootProject.ext.bintray.repo
+        name = rootProject.ext.bintray.name
+//        desc = rootProject.ext.bintray.libraryDescription
+//        websiteUrl = rootProject.ext.bintray.siteUrl
+        vcsUrl = rootProject.ext.bintray.vcsUrl
+        licenses = rootProject.ext.bintray.licenses
+        publish = true
+        publicDownloadNumbers = true
+//        userOrg = properties.getProperty('bintray.userOrg')
+//        version {
+//            desc = rootProject.ext.bintray.libraryDescription
+//            gpg {
+//                sign = true // Determines whether to GPG sign the files. The default is false
+//                passphrase = properties.getProperty('bintray.gpg.password') // Optional. The passphrase for GPG signing
+//            }
+//        }
+    }
+}

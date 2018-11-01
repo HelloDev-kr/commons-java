@@ -1,0 +1,41 @@
+//apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven'
+
+// Maven Group ID for the artifact
+group = rootProject.ext.maven.groupId
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom.project {
+            packaging 'jar'
+            groupId rootProject.ext.maven.groupId
+            artifactId rootProject.ext.maven.artifactId
+
+            // Add your description here
+//            name rootProject.ext.bintray.libraryName
+//            description rootProject.ext.bintray.libraryDescription
+//            url rootProject.ext.bintray.siteUrl
+
+            // Set your license
+            licenses {
+                license {
+                    name rootProject.ext.maven.license
+                    url rootProject.ext.maven.licenseUrl
+                }
+            }
+            developers {
+                developer {
+                    id rootProject.ext.maven.developerId
+                    name rootProject.ext.maven.developerName
+                    email rootProject.ext.maven.developerEmail
+                }
+            }
+            scm {
+//                connection rootProject.ext.bintray.gitUrl
+//                developerConnection rootProject.ext.bintray.gitUrl
+//                url rootProject.ext.bintray.siteUrl
+            }
+        }
+    }
+}

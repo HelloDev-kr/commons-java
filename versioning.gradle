@@ -1,0 +1,12 @@
+def getCommitsCount() {
+    return "git --git-dir=${projectDir}/.git --work-tree=${projectDir}/.. rev-list --count HEAD".execute().text.toInteger()
+}
+
+ext.preprocessVersionBuild = getCommitsCount()
+ext.preprocessVersionMajor = rootProject.ext.versioning.versionMajor
+ext.preprocessVersionMinor = rootProject.ext.versioning.versionMinor
+ext.preprocessVersionName = ("${preprocessVersionMajor}.${preprocessVersionMinor}.${preprocessVersionBuild}")
+
+jar.version preprocessVersionName
+
+rootProject.ext.bintray.libraryVersion = preprocessVersionName

@@ -1,16 +1,44 @@
-plugins {
-    id 'java'
+apply from: 'config.gradle'
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3"
+    }
 }
 
-group 'kr.hellodev.support'
-version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+//apply plugin: 'org.springframework.boot'
 
-sourceCompatibility = 1.8
+sourceCompatibility = rootProject.ext.java.sourceCompatibility
+
+jar {
+    baseName = 'commons-java'
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile rootProject.ext.dependencies['junit:junit']
 }
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply from: 'versioning.gradle'
+apply from: 'install.gradle'
+apply from: 'bintray.gradle'
