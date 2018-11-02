@@ -29,6 +29,8 @@ repositories {
 }
 
 dependencies {
+    compile rootProject.ext.dependencies['org.mybatis.spring.boot:mybatis-spring-boot-starter']
+    runtime rootProject.ext.dependencies['mysql:mysql-connector-java']
     testCompile rootProject.ext.dependencies['junit:junit']
 }
 
