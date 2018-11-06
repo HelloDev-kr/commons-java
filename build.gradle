@@ -30,6 +30,8 @@ repositories {
 
 dependencies {
     compile rootProject.ext.dependencies['org.mybatis.spring.boot:mybatis-spring-boot-starter']
+    compile rootProject.ext.dependencies['com.google.code.gson:gson']
+    compileOnly rootProject.ext.dependencies['org.projectlombok:lombok']
     runtime rootProject.ext.dependencies['mysql:mysql-connector-java']
     testCompile rootProject.ext.dependencies['junit:junit']
 }
