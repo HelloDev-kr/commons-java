@@ -13,7 +13,7 @@ import lombok.Setter;
  */
 @NoArgsConstructor
 @AllArgsConstructor
-class BindingError {
+public class BindingError {
 
     @Expose
     @Getter
