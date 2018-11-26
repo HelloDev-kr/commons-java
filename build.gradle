@@ -36,6 +36,7 @@ dependencies {
     compile rootProject.ext.dependencies['com.google.code.gson:gson']
     compile rootProject.ext.dependencies['commons-collections:commons-collections']
     compileOnly rootProject.ext.dependencies['org.projectlombok:lombok']
+    compileOnly rootProject.ext.dependencies['javax.servlet.jsp:jsp-api']
     runtime rootProject.ext.dependencies['mysql:mysql-connector-java']
     testCompile rootProject.ext.dependencies['junit:junit']
 }

@@ -31,6 +31,7 @@ ext {
             'org.projectlombok:lombok'                           : 'org.projectlombok:lombok:1.18.4',
             'mysql:mysql-connector-java'                         : 'mysql:mysql-connector-java:8.0.13',
             'commons-collections:commons-collections'            : 'commons-collections:commons-collections:3.2.2',
+            'javax.servlet.jsp:jsp-api'                          : 'javax.servlet.jsp:jsp-api:2.2.1-b03',
             'junit:junit'                                        : 'junit:junit:4.12'
     ]
 }
