@@ -35,6 +35,7 @@ dependencies {
     compile rootProject.ext.dependencies['org.mybatis.spring.boot:mybatis-spring-boot-starter']
     compile rootProject.ext.dependencies['com.google.code.gson:gson']
     compile rootProject.ext.dependencies['commons-collections:commons-collections']
+    compile rootProject.ext.dependencies['commons-fileupload:commons-fileupload']
     compile rootProject.ext.dependencies['com.googlecode.json-simple:json-simple']
     compileOnly rootProject.ext.dependencies['org.projectlombok:lombok']
     compileOnly rootProject.ext.dependencies['javax.servlet.jsp:jsp-api']
